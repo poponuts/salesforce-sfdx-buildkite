@@ -1,0 +1,21 @@
+{
+  "name": "salesforce-sfdx-buildkite",
+  "version": "0.0.1",
+  "description": "salesforce sfdx for buildkite",
+  "license": "ISC",
+  "devDependencies": {
+    "sfdx-cli": "7.203.6"
+  },
+  "scripts": {
+    "auth": "chmod +x ./scripts/auth.sh && ./scripts/auth.sh",
+    "pretest": "npm run auth && chmod +x ./scripts/test.sh",
+    "test": "./scripts/test.sh",
+    "prepackage": "npm run auth && chmod +x ./scripts/package.sh",
+    "package": "./scripts/package.sh",
+    "prepromote": "npm run auth && chmod +x ./scripts/promote.sh",
+    "promote": "./scripts/promote.sh",
+    "predeploy": "chmod +x ./scripts/install.sh",
+    "deploy": "./scripts/install.sh",
+    "snyk": "snyk test --severity-threshold=high && snyk code test --severity-threshold=high"
+  }
+}
